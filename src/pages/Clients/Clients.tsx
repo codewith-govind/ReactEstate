@@ -258,7 +258,7 @@ export default function Clients() {
 
                 <div className="mt-4 flex justify-end gap-3">
                   <button
-                    onClick={() => navigate(`/clients/${client.id}`)}
+                    // onClick={() => navigate(`/clients/${client.id}`)}
                     className="text-sm text-blue-600 hover:underline"
                   >
                     View

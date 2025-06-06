@@ -88,7 +88,7 @@ const newNavItems: NavItem[] = [
   {
     icon: <BoxCubeIcon />,
     name: "Materials",
-    path :"/materials",
+    // path :"/materials",
     // subItems: [
     //   { name: "Materials List", icon: <GridIcon />, path: "/materials" },
     //   { name: "Add Materials", icon: <PlusIcon />,path: "/materials/new" },
@@ -97,7 +97,7 @@ const newNavItems: NavItem[] = [
   {
     icon: <DollarLineIcon />,
     name: "Expenses",
-    path :"/expenses",
+    // path :"/expenses",
     // subItems: [
     //   { name: "All Expenses", icon: <GridIcon />, path: "/expenses" },
     //   { name: "Add Expenses", icon: <PlusIcon />,path: "/expenses/new" },
@@ -112,7 +112,7 @@ const newNavItems: NavItem[] = [
   {
     icon: <GearIcon />,
     name: "Settings",
-    path: "/settings",
+    // path: "/settings",
   },
 ];
 
@@ -256,7 +256,7 @@ const AppSidebar: React.FC = () => {
               )}
             </button>
           ) : (
-            nav.path && (
+            // nav.path && (
               <Link
                 to={nav.path}
                 className={`menu-item group ${
@@ -276,7 +276,7 @@ const AppSidebar: React.FC = () => {
                   <span className="menu-item-text">{nav.name}</span>
                 )}
               </Link>
-            )
+            // )
           )}
           {nav.subItems && (isExpanded || isHovered || isMobileOpen) && (
             <div

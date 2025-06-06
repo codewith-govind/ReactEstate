@@ -126,7 +126,7 @@ export default function SiteDetails() {
     // Simulate API call
     setTimeout(() => {
       setSiteData(mockSiteData); // Replace with actual fetch by siteId
-    }, 3000);
+    }, 1000);
   }, [siteId]);
 
   const handleAddUnit = () => {
