@@ -2,6 +2,7 @@
   "name": "RealEstate",
   "private": true,
   "version": "2.0.2",
+  "homepage": "https://codewith-govind.github.io/ReactEstate",
   "type": "module",
   "scripts": {
     "dev": "vite",
