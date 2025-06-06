@@ -16,4 +16,7 @@ export default defineConfig({
     }),
   ],
   base: '/ReatEstate/',
+  build: {
+    outDir: 'docs', // 👈 change output to 'docs'
+  },
 });
