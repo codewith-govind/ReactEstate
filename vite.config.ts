@@ -15,7 +15,7 @@ export default defineConfig({
       },
     }),
   ],
-  // base: '/ReactEstate/',
+  base: '/ReactEstate/',
   build: {
     outDir: 'docs', // 👈 change output to 'docs'
   },
