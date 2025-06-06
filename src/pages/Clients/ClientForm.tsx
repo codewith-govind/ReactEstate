@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 interface ClientFormProps {
   type: String;
   initialData?: {
-    name: string;
-    phone: string;
-    email?: string;
-    address?: string;
-    advancePaid?: number;
+    // name: string;
+    // phone: string;
+    // email?: string;
+    // address?: string;
+    // advancePaid?: number;
   };
   onSubmit: (data: {
     name: string;
@@ -21,17 +21,15 @@ interface ClientFormProps {
 
 const ClientForm: React.FC<ClientFormProps> = ({
   type,
-  initialData,
+  // initialData,
   onSubmit,
   onClose,
 }) => {
-  const [name, setName] = useState(initialData?.name || "");
-  const [phone, setPhone] = useState(initialData?.phone || "");
-  const [email, setEmail] = useState(initialData?.email || "");
-  const [address, setAddress] = useState(initialData?.address || "");
-  const [advancePaid, setAdvancePaid] = useState(
-    initialData?.advancePaid?.toString() || ""
-  );
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [advancePaid, setAdvancePaid] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

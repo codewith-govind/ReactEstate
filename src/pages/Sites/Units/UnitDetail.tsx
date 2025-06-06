@@ -5,7 +5,7 @@ import UnitPhotos from "../../../components/unit/UnitPhotos";
 import ProgressTimeline from "../../../components/unit/ProgressTimeline";
 import ExpenseTable from "../../../components/unit/ExpenseTable";
 import { Modal } from "../../../components/ui/modal"; // Assume you have a reusable Modal component
-import { ArrowLeft, Pencil, PencilIcon } from "lucide-react";
+import { ArrowLeft, PencilIcon } from "lucide-react";
 import { useNavigate, useParams } from "react-router";
 import UnitForm from "./UnitForm";
 
@@ -18,11 +18,11 @@ interface Client {
   advancePaid?: number;
 }
 
-interface ProgressItem {
-  date: string;
-  title: string;
-  description?: string;
-}
+// interface ProgressItem {
+//   date: string;
+//   title: string;
+//   description?: string;
+// }
 
 interface Expense {
   id: string;
@@ -106,14 +106,24 @@ const UnitDetail: React.FC = () => {
     "https://via.placeholder.com/300x200?text=Photo+2",
   ]);
 
-  const [progressItems, setProgressItems] = useState<ProgressItem[]>([
+  // const [progressItems, setProgressItems] = useState<ProgressItem[]>([
+  //   { date: "2025-05-01", title: "Foundation completed" },
+  //   {
+  //     date: "2025-05-10",
+  //     title: "Walls constructed",
+  //     description: "Walls reached 2nd floor.",
+  //   },
+  // ]);
+
+
+  const progressItems  = [
     { date: "2025-05-01", title: "Foundation completed" },
     {
       date: "2025-05-10",
       title: "Walls constructed",
       description: "Walls reached 2nd floor.",
     },
-  ]);
+  ]
 
   const [expenses, setExpenses] = useState<Expense[]>([
     {
@@ -126,9 +136,9 @@ const UnitDetail: React.FC = () => {
   ]);
 
   // Modal state for editing client info
-  const [isClientFormOpen, setIsClientFormOpen] = useState(false);
+  // const [isClientFormOpen, setIsClientFormOpen] = useState(false);
 
-  const { siteId, unitId } = useParams();
+  const { siteId } = useParams();
   const navigate = useNavigate();
   const [unitModal, setUnitModal] = useState({
     isOpen: false,
@@ -141,15 +151,15 @@ const UnitDetail: React.FC = () => {
     data: {},
   });
 
-  const statusColorMap = {
-    Planned: "bg-yellow-100 text-yellow-800",
-    "In Progress": "bg-blue-100 text-blue-800",
-    Completed: "bg-green-100 text-green-800",
-  };
+  // const statusColorMap = {
+  //   Planned: "bg-yellow-100 text-yellow-800",
+  //   "In Progress": "bg-blue-100 text-blue-800",
+  //   Completed: "bg-green-100 text-green-800",
+  // };
 
   const handleClientUpdate = (updatedClient: Client) => {
     setClient(updatedClient);
-    setIsClientFormOpen(false);
+    // setIsClientFormOpen(false);
     // TODO: Save changes to Firebase
   };
 
@@ -225,8 +235,9 @@ const UnitDetail: React.FC = () => {
             <div className="ms-auto flex items-center gap-3">
               <span
                 className={`text-sm font-medium px-3 py-1 rounded-full ${
-                  statusColorMap[mockUnit.status]
+                  mockUnit.status ? "" : ""
                 }`}
+                // statusColorMap[mockUnit.status]
               >
                 {mockUnit.status}
               </span>

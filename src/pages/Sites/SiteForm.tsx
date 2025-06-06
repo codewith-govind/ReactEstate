@@ -11,7 +11,7 @@ export interface SiteData {
 interface SiteFormProps {
   type:String;
   initialData?: Partial<SiteData>;
-  onSubmit: (data: SiteData) => void;
+  onSubmit: (data: any) => void;
   onCancel?: () => void;
 }
 

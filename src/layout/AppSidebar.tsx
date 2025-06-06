@@ -4,25 +4,25 @@ import { Link, useLocation } from "react-router";
 // Assume these icons are imported from an icon library
 import {
   BoxCubeIcon,
-  CalenderIcon,
+  // CalenderIcon,
   ChevronDownIcon,
-  FolderIcon,
+  // FolderIcon,
   GridIcon,
-  HorizontaLDots,
-  ListIcon,
-  PageIcon,
+  // HorizontaLDots,
+  // ListIcon,
+  // PageIcon,
   PieChartIcon,
   PlugInIcon,
-  PlusIcon,
+  // PlusIcon,
   DollarLineIcon,
-  TableIcon,
-  UserCircleIcon,
+  // TableIcon,
+  // UserCircleIcon,
   GroupIcon,
   CopyIcon,
   GearIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
-import SidebarWidget from "./SidebarWidget";
+// import SidebarWidget from "./SidebarWidget";
 
 type NavItem = {
   name: string;
@@ -78,12 +78,12 @@ const newNavItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    path :"/"
+    path: "/",
   },
   {
     icon: <CopyIcon />,
     name: "Sites",
-    path :"/sites",
+    path: "/sites",
   },
   {
     icon: <BoxCubeIcon />,
@@ -106,7 +106,7 @@ const newNavItems: NavItem[] = [
   {
     icon: <GroupIcon />,
     name: "Clients",
-    path: "/clients"
+    path: "/clients",
   },
 
   {
@@ -257,25 +257,25 @@ const AppSidebar: React.FC = () => {
             </button>
           ) : (
             // nav.path && (
-              <Link
-                to={nav.path}
-                className={`menu-item group ${
-                  isActive(nav.path) ? "menu-item-active" : "menu-item-inactive"
+            <Link
+              to={nav?.path ? nav.path : ""}
+              className={`menu-item group ${
+                isActive(nav?.path ? nav?.path : "") ? "menu-item-active" : "menu-item-inactive"
+              }`}
+            >
+              <span
+                className={`menu-item-icon-size ${
+                  isActive(nav?.path ? nav?.path : "")
+                    ? "menu-item-icon-active"
+                    : "menu-item-icon-inactive"
                 }`}
               >
-                <span
-                  className={`menu-item-icon-size ${
-                    isActive(nav.path)
-                      ? "menu-item-icon-active"
-                      : "menu-item-icon-inactive"
-                  }`}
-                >
-                  {nav.icon}
-                </span>
-                {(isExpanded || isHovered || isMobileOpen) && (
-                  <span className="menu-item-text">{nav.name}</span>
-                )}
-              </Link>
+                {nav.icon}
+              </span>
+              {(isExpanded || isHovered || isMobileOpen) && (
+                <span className="menu-item-text">{nav.name}</span>
+              )}
+            </Link>
             // )
           )}
           {nav.subItems && (isExpanded || isHovered || isMobileOpen) && (
@@ -304,7 +304,8 @@ const AppSidebar: React.FC = () => {
                     >
                       <span
                         className={`menu-item-icon-size  ${
-                          openSubmenu?.type === menuType && openSubmenu?.index === index
+                          openSubmenu?.type === menuType &&
+                          openSubmenu?.index === index
                             ? "menu-item-icon-active"
                             : "menu-item-icon-inactive"
                         }`}

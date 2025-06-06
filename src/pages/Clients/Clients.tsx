@@ -370,9 +370,9 @@ export default function Clients() {
           </div>
           <ClientForm
             type={clientModal.type}
-            initialData={clientModal.data}
+            initialData={clientModal.data ? clientModal.data : {}}
             onSubmit={() => {}}
-            onCancel={() => {
+            onClose={() => {
               setClientModal((preValue: any) => {
                 preValue.isOpen = true;
                 preValue.type = "";

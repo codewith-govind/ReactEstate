@@ -9,9 +9,9 @@ import {
   TableIcon,
   ListIcon,
   ViewIcon,
-  HammerIcon,
-  EditIcon,
-  EyeIcon,
+  // HammerIcon,
+  // EditIcon,
+  // EyeIcon,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -137,26 +137,26 @@ export default function SiteDetails() {
     });
   };
 
-  const handleUnitSubmit = (data: any) => {
-    // if (editUnit) {
-    //   // update
-    //   setUnits((prev) =>
-    //     prev.map((u) => (u.id === editUnit.id ? { ...u, ...data } : u))
-    //   );
-    // } else {
-    //   // add
-    //   setUnits((prev) => [
-    //     ...prev,
-    //     { id: Date.now().toString(), ...data },
-    //   ]);
-    // }
-    // setShowUnitModal(false);
-    setUnitModal((preValue: any) => {
-      preValue.isOpen = false;
-      preValue.type = "";
-      return { ...preValue };
-    });
-  };
+  // const handleUnitSubmit = (data: any) => {
+  //   // if (editUnit) {
+  //   //   // update
+  //   //   setUnits((prev) =>
+  //   //     prev.map((u) => (u.id === editUnit.id ? { ...u, ...data } : u))
+  //   //   );
+  //   // } else {
+  //   //   // add
+  //   //   setUnits((prev) => [
+  //   //     ...prev,
+  //   //     { id: Date.now().toString(), ...data },
+  //   //   ]);
+  //   // }
+  //   // setShowUnitModal(false);
+  //   setUnitModal((preValue: any) => {
+  //     preValue.isOpen = false;
+  //     preValue.type = "";
+  //     return { ...preValue };
+  //   });
+  // };
 
   const filteredUnits = mockSiteData?.units?.filter?.((unit) =>
     unit.name.toLowerCase().includes(search.toLowerCase())
@@ -311,7 +311,7 @@ export default function SiteDetails() {
               <h4 className="text-sm text-gray-500">Average Progress</h4>
               <p className="text-xl font-semibold text-gray-800 dark:text-white/90">
                 {Math.round(
-                  siteData.units.reduce((sum, u) => sum + u.progress, 0) /
+                  siteData.units.reduce((sum : any, u : any) => sum + u.progress, 0) /
                     siteData.units.length
                 )}
                 %
@@ -464,7 +464,7 @@ export default function SiteDetails() {
                     {unit?.hasClient ? (
                       <div className="flex items-center gap-2">
                         <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm font-semibold uppercase">
-                          {unit?.clientName[0]}
+                          {unit?.clientName?.[0]}
                         </div>
                         <div>
                           <p className="text-gray-800 dark:text-white">
